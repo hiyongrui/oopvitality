@@ -14,7 +14,7 @@ class Disease:
         currentdatetime = datetime.datetime.now()
         create_date = str(currentdatetime.day) + "-" + str(currentdatetime.month) + "-" + str(
             currentdatetime.year)  # DD-MM-YYYY format
-        self.__created_date = create_date
+        self.__created_date = created_date
 
 
 
