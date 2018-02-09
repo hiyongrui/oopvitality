@@ -1,0 +1,183 @@
+<title> Vitality Clinic information </title>
+{% extends 'layoutyr.html' %}
+{% block body %}
+
+<style>
+
+#testing1 {
+
+
+background-color:#eeeeee;
+    color:#6644dd;
+    margin-top:66px;
+}
+
+body{
+    background-color:ghostwhite !important;
+
+}
+
+h2,.infocolor{
+    color:mediumblue;
+    margin-bottom:18px;
+    font-size:24px;
+}
+
+h2{
+    font-size:39px;
+    text-decoration-color:blue;
+color:dodgerblue;
+    margin-bottom:30px;
+}
+#icon2{
+	font-size:28px;
+	}
+.column {
+    float: left;
+    width: 50%;
+
+    /* Should be #eeeeee at first*/
+     background-color:ghostwhite;
+}
+
+.row:after {
+
+    display: table;
+    clear: both;
+    margin-bottom:120px;
+}
+
+
+
+
+.clinic1,.clinic2{
+    margin-top: 60px;
+}
+
+.clinic1{
+    margin-left:139px;
+}
+
+.clinic2{
+    margin-left:36px;
+}
+
+img{
+    margin-top:88px;
+}
+.ontop{
+    margin-top:66px;
+    margin-left:38px;
+    font-size:24px;
+}
+
+
+.ontop1{
+    color:black;
+    text-decoration:none !important;
+}
+
+.linkbackcolor{
+    color:blue;
+}
+
+
+.footercolor{
+    color:#337ab7 !important;
+}
+
+#ratingstars{
+    margin-left:6px;
+    font-size:30px;
+    color:deepskyblue;
+
+}
+
+i.material-icons{
+    font-size:30px;
+}
+
+.w3-white{
+    padding:8px;
+}
+
+
+.goog-te-gadget{
+    height:28px !important;
+}
+
+.goog-te-gadget-simple{
+
+    height:39px;
+}
+
+.goog-te-gadget-simple .goog-te-menu-value span{
+    font-size:24px;
+    vertical-align:top;
+}
+</style>
+
+<div class="row">
+
+    <div class="column">
+
+
+
+{% for clinic in display_clinic %}
+
+
+    <p class="ontop"> <a class="linkbackcolor" href="{{ url_for('loggedin') }}"> Home </a> > <a class="linkbackcolor" href="{{ url_for('searchclinic') }}"> Search Clinic
+    </a>  > <a class="linkbackcolor" href="{{ url_for('searchclinics',region=clinic.get_region()) }}"> {{ clinic.get_region() }}</a> >
+        <a href="" class="ontop1">  {{ clinic.get_title() }} </a>
+    </p>
+
+    {% endfor %}
+
+{% for clinic in display_clinic %}
+<div class="clinic1">
+
+    <section>
+
+     <h2> <i class="material-icons"> add_to_queue </i>  {{ clinic.get_title() }} </h2>
+        <p id="ratingstars" class="infocolor"> <span class="glyphicon">&#xe125;</span>  Rating :
+            {%  for count in range(clinic.get_rating()) %}
+                        &#9733;
+                    {% endfor %}
+                    {%  for count in range(5 - clinic.get_rating()) %}
+                        &#9734;
+                    {% endfor %} </p>
+
+
+
+        <p class="infocolor"> <i class="material-icons"> location_on </i> Address: {{ clinic.get_address() }} </p>
+
+        <p class="infocolor"> <i class="material-icons"> phone_in_talk </i> Phone No : +{{ clinic.get_phone() }} </p>
+
+        <p class="infocolor"> <i class="material-icons"> access_time </i> Opening Hours: {{ clinic.get_openingHour() }} </p>
+
+        <p class="infocolor"> <i class="material-icons"> directions_bus </i> bus No: {{ clinic.get_busNo() }} </p>
+        <p class="infocolor"> <i class="material-icons"> directions_transit </i> Nearest MRT: {{ clinic.get_mrtStation() }} </p>
+        <p class="infocolor">  <i class="material-icons"> local_hospital </i> Nearest hospital: {{ clinic.get_hospital() }} </p>
+
+
+</section>
+
+</div>
+
+
+    </div>
+
+        <div class="column">
+        <div class="clinic2">
+            <img src="{{url_for('send_image',filename=clinic.get_photo()) }}" height="550" width="688">
+        </div>
+        </div>
+
+
+
+{% endfor %}
+
+
+</div>
+
+{% endblock %}

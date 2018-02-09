@@ -1,0 +1,44 @@
+{% extends 'layout2.html' %}
+
+{% block body %}
+
+    <h1>View All Patients</h1>
+    <br/>
+    <hr/>
+
+    <table class="table table-bordered">
+
+        <thead>
+        <tr>
+
+            <th>Patient Name</th>
+            <th>Queue Number</th>
+            <th>Status</th>
+
+        </tr>
+        </thead>
+
+        {% for queue in queues %}
+        <tbody>
+             <td>{{ queue.get_publisher() }}</td>
+             <td>{{ loop.index }}</td>
+             <td>{{ queue.get_patient_status() }}</td>
+        {% endfor %}
+        </tbody>
+        <tbody>
+
+    </table>
+
+
+
+
+
+
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+{% endblock %}

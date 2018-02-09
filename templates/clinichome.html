@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html>
+<title> Vitality Home </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"> </script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+ <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("http://mcfiber.pro/wowopapae.jpg");
+    min-height: 100%;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+
+
+.bgimg {
+    background-image: url('/static/img/download.jpg');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+}
+
+.topleft {
+    position: absolute;
+    top: 0;
+    left: 16px;
+}
+
+.bottomleft {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+hr {
+    margin:auto;
+    width:54%;
+
+    border-top:2px solid lightsteelblue !important;
+    margin-top:15px;
+    margin-bottom:15px;
+
+}
+
+    .design1{
+        font-size: 40px;
+    font-style: italic;
+    line-height: 40px;
+
+    font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+       margin-bottom:10px;
+        color:white;
+    }
+
+    .design2{
+        font-size: 75px;
+    font-weight: 700;
+    line-height: 75px;
+    margin-bottom: 50px;
+    font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+        color:white;
+
+    }
+
+
+button,
+button::after {
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+button {
+  background-color:lightslategray;
+  border: 3px solid lightsteelblue;
+  border-radius: 18px;
+  color: #fff;
+  display: block;
+  font-size:18px;
+  font-weight: bold;
+  margin: 1em auto;
+  padding: 2em 4em;
+  position: relative;
+  text-transform: uppercase;
+    font-family:Montserrat;
+}
+
+button::before,
+button::after {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -1;
+    border-radius:18px;
+}
+
+button:hover {
+    background-color:white;
+  color: dodgerblue;
+}
+
+    /* BUTTON 3 */
+.btn-3::after {
+  height: 0;
+  left: 50%;
+  top: 50%;
+  width: 0;
+}
+
+.btn-3:hover:after {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+    span.blue {
+  background: #5178D0;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6em;
+  margin-right: 15px;
+  text-align: center;
+  width: 1.6em;
+}
+
+
+    .w3-dark-grey, .w3-hover-dark-grey:hover, .w3-dark-gray, .w3-hover-dark-gray:hover{
+
+        background-color:#03A9F4 !important;
+    }
+    .w3-grey, .w3-hover-grey:hover, .w3-gray, .w3-hover-gray:hover{
+        background-color:#607D8B !important;
+        font-size:26px;
+        margin-top:20px;
+    }
+
+    a.btn:hover {
+     -webkit-transform: scale(1.1);
+     -moz-transform: scale(1.1);
+     -o-transform: scale(1.1);
+ }
+ a.btn {
+     -webkit-transform: scale(0.8);
+     -moz-transform: scale(0.8);
+     -o-transform: scale(0.8);
+     -webkit-transition-duration: 0.5s;
+     -moz-transition-duration: 0.5s;
+     -o-transition-duration: 0.5s;
+     font-size:35px;
+ }
+
+
+    .w3-xxlarge{
+        font-size:72px !important;
+        color:blue;
+    }
+
+h2{
+    color:lightseagreen;
+    font-size:35px;
+    font-family:Impact;
+}
+
+.hello{
+    font-size:22px;
+    font-style:italic;
+}
+
+    .w3-center{
+        color:lightseagreen;
+        font-size:30px;
+    }
+
+    .w3-large{
+        font-size:20px;
+        color:blue;
+    }
+
+    #hellomove1,#hellomove2,#hellomove3,#hellomove{
+        margin-top:30px;
+        font-size:24px;
+        color:deeppink;
+    }
+
+    .w3-center{
+        font-family:'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+        font-style:italic;
+    }
+
+    #servicecolor{
+        background-color:ghostwhite;
+    }
+
+
+#betterhr{
+    width:100%;
+}
+
+
+      .footercolor{
+        color:#337ab7 !important;
+        font-family:'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+        font-style:italic;
+        font-size:30px;
+    }
+
+    #poweredby{
+        font-family:'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+        font-style:italic;
+        font-size:30px;
+    }
+
+
+    #overviewline, #overviewline1 ,#overviewline2{
+        border-collapse: separate;
+  border-spacing: 16px 0;
+  border-spacing: 1rem 0;
+
+  display: table;
+
+  line-height: .25;
+  margin: 1em 0 .5em;
+  table-layout: auto;
+  text-align: center;
+
+  white-space: nowrap;
+  width: 100%;
+    }
+
+    #overviewline:before,#overviewline:after{
+         border-top: 3px double #123;
+  content: '';
+  display: table-cell;
+  width: 50%;
+        border-top-color: lightseagreen;
+
+    }
+
+     #overviewline1:before,#overviewline1:after{
+         border-top: 3px double #123;
+  content: '';
+  display: table-cell;
+  width: 50%;
+        border-top-color: lightseagreen;
+
+    }
+
+  #overviewline2:before,#overviewline2:after{
+         border-top: 3px double #123;
+  content: '';
+  display: table-cell;
+  width: 50%;
+        border-top-color:ghostwhite;
+
+    }
+
+    .goog-te-gadget-simple{
+        padding:14px !important;
+
+    }
+</style>
+
+
+{% block body %}
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+
+    <a href="#home" class="w3-bar-item w3-button w3-wide">VITALITY</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+
+      <a href="#yourcreations" class="w3-bar-item w3-button"><i class="fa fa-user"></i> YOUR CREATIONS</a>
+      <a href="#services" class="w3-bar-item w3-button"><i class="fa fa-th"></i> SERVICES </a>
+     <a href="#home" class="w3-bar-item w3-button"> LOGOUT </a>
+    </div>  <div id="google_translate_element"></div>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#yourcreations" onclick="w3_close()" class="w3-bar-item w3-button">YOUR CREATIONS</a>
+  <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button">SERVICES</a>
+  <a href="/logout" onclick="w3_close()" class="w3-bar-item w3-button">LOGOUT</a>
+
+</nav>
+
+
+
+<!-- Header with full-height image -->
+
+<div class="bgimg" id="home">
+  <div class="topleft">
+    <p>Logo</p>
+  </div>
+  <div class="middle">
+    <h1 id="overviewline2" class="design1">WELCOME TO VITALITY </h1>
+
+    <div class="design2">IT'S NICE TO MEET YOU </div>
+      <button id="button1" onclick="scrollToElement()" class="btn-3"> <p>  Tell Me More </p> </button>
+  </div>
+
+<div class="w3-display-bottommiddle w3-text-grey w3-large" style="padding:24px 48px">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+
+</div>
+
+
+
+
+
+<!--  Section - "YOUR CREATIONS"!-->
+<div class="w3-container w3-light-grey" style="padding:101px 16px" id="yourcreations">
+
+<h3 id="overviewline" class="w3-center"> OVERVIEW OF YOUR CREATIONS  </h3>
+
+  <div class="w3-row-padding">
+
+    <div class="w3-col m6">
+
+
+        <p id="hellomove" class="w3-wide"><i class="fa fa-check-square-o w3-margin-right"></i>Data of clinics out of all you entered</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:{{ clinicpercent }}%">{{ clinicpercent }}%</div>
+      </div>
+
+      <p id="hellomove1" class="w3-wide"><i class="fa fa-check-square-o w3-margin-right"></i> Data of diseases out of all you entered </p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:{{ diseasepercent }}%">{{ diseasepercent }}%</div>
+      </div>
+
+      <p id="hellomove2" class="w3-wide"><i class="fa fa-check-square-o w3-margin-right"></i> Data of articles out of all you entered </p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:{{ articlepercent }}%">{{ articlepercent }}%</div>
+      </div>
+
+        <p id="hellomove3" class="w3-wide"><i class="fa fa-check-square-o w3-margin-right"></i> Data of Tips of the day out of all you entered</p>
+      <div class="w3-grey">
+        <div class="w3-container w3-dark-grey w3-center" style="width:{{ tippercent }}%">{{ tippercent }}%</div>
+      </div>
+
+
+    </div>
+
+    <div class="w3-col m6">
+
+
+   <canvas id="myChart" width="520" height="418"></canvas>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div id="servicecolor">
+    <!-- Services Section -->
+<div class="w3-container" style="padding:128px 16px" id="services">
+  <h3 id="overviewline1" class="w3-center"> 4 SERVICES THAT WE HAVE FOR YOU </h3>
+
+  <p class="w3-center w3-large"> Creating Clinics , Diseases , Articles , Tips of the day! </p>
+
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+
+    <div class="w3-quarter">
+
+    <span class="w3-xxlarge">{{ countclinic }}+</span>
+        <br>  <h2> Clinics Created <h4 class="hello"> Currently </h4>  </h2>
+        <br>
+      <a href="createclinic" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <span><strong>Add</strong></span>
+    </a>
+
+        <a href="viewclinic" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <span><strong>View</strong></span>
+    </a>
+    </div>
+
+    <div class="w3-quarter">
+            <span class="w3-xxlarge">{{ countdisease }}+</span>
+
+        <br> <h2> Diseases Created <h4 class="hello"> Currently </h4> </h2>
+        <br>
+           <a href="createdisease" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <span><strong>Add</strong></span>
+    </a>
+
+        <a href="viewdisease" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <span><strong>View</strong></span>
+    </a>
+    </div>
+
+
+
+    <div class="w3-quarter">
+             <span class="w3-xxlarge"> {{ countarticles }}+ </span>
+        <br> <h2> Articles Created <h4 class="hello"> Currently  </h4></h2>
+        <br>
+            <a href="createarticle" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <span><strong>Add</strong></span>
+    </a>
+
+        <a href="viewarticle" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <span><strong>View</strong></span>
+    </a>
+
+    </div>
+
+
+    <div class="w3-quarter">
+       <span class="w3-xxlarge"> {{ counttips }}+ </span>
+        <br> <h2> Tips Of The Days <h4 class="hello"> Currently </h4> </h2>
+        <br>
+           <a href="createtip" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        <span><strong>Add</strong></span>
+    </a>
+
+        <a href="viewtips" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        <span><strong>View</strong></span>
+    </a>
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+    <p class="mbr-text mb-0 mbr-fonts-style mbr-white align-center display-7">
+                    © Copyright 2018 Vitality - All Rights Reserved
+               </p>
+
+
+</footer>
+
+
+
+
+<script>
+
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+    if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+    } else {
+        mySidebar.style.display = 'block';
+    }
+}
+
+
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
+
+
+
+
+
+<script>
+
+function scrollToElement(element) {
+	document.getElementById('yourcreations').scrollIntoView({block: 'start', behavior: 'smooth'});
+
+}
+
+
+$('#button2').on('click',function(e) {
+    e.preventDefault();
+    $link=$(this).attr('href');
+});
+
+
+
+
+
+</script>
+
+
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Clinics", "Diseases", "Articles", "Tips of the day"],
+        datasets: [{
+            label: 'Data you have created',
+            data: [{{ countclinic }},{{ countdisease }},{{ countarticles }},{{ counttips }}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(75, 192, 192, 0.2)'
+
+
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                  'rgba(255, 159, 64, 1)',
+                'rgba(75, 192, 192, 1)'
+
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+
+    		 <script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', layout:
+        google.translate.TranslateElement.InlineLayout.SIMPLE},
+            'google_translate_element');
+    }
+    </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+ {% endblock %}
+

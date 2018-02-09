@@ -1,0 +1,340 @@
+@charset "utf-8";
+form {
+    display: block;
+    padding-top: 10px;
+	padding-bottom: 10px;
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body {
+    font: small arial,sans-serif;
+    margin: 0;
+    text-align: -webkit-center;
+}
+header , .wrapper, #title{
+	z-index:1;
+}
+.wrapper{
+	width:100%;
+	overflow:hidden;
+}
+div#tips {
+	min-height:300px;
+}
+
+#register h1 {
+			margin-bottom: 30px;
+}
+
+header {
+		background-color: #616161;
+		opacity: 1;
+}
+
+footer {
+    padding: 80px 0;
+    text-align: center;
+	background-color: #616161;
+	opacity: 1;
+}
+
+#register {
+		height: 1750px;
+}
+
+#profileinfo {
+			text-align: left;
+			margin: auto;
+			min-height:1000px;
+			width:360px;
+}
+
+#profilepicture {
+				border: 5px solid black;
+}
+
+strong {
+	width:300px;
+	display: inline-block;
+	text-align:left;
+}
+
+span {
+	width:300px;
+	display: inline-block;
+	text-align:left;
+}
+
+.subinfo {
+		margin-bottom:20px;
+		margin-top:20px;
+}
+
+#carouselExampleIndicators {
+	margin-left: 33%;
+    margin-right: 33%;
+    align-content: center;
+}
+
+div.container {
+			padding-right: 15px;
+			padding-left: 15px;
+			background-color: #616161;
+			opacity: 1;
+			color:white;
+}
+div.container a {
+	color:white;
+}
+section.wrapper {
+			margin-top: 0px;
+			margin-left: 0px;
+			margin-right: 0px;
+			background-image: url(../img/sg_doctor.jpg);
+			background-size: 100% auto;
+			background-repeat: no-repeat;
+			background-position:top;
+			height: 70vh;
+			width: 100%;
+			padding-top: 80px;
+}
+
+#title {
+		margin-top: 0;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 0px;
+		padding-top: 0px;
+		height:30vh;
+		position:relative;
+}
+
+section.wrapper h1 {
+		font-size: 40px;
+		margin-top: 30px;
+}
+
+#main {
+		margin-top: 50px;
+		margin-left: 100px;
+		margin-right: 100px;
+		margin-bottom: 70px;
+		background-color: #474747;
+		opacity: 0.75;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		padding-left: 30px;
+		padding-right: 30px;
+		background-position: center;
+		width:1120px;
+}
+
+#main h1 {
+			margin-bottom: 70px;
+			padding-top: 15px;
+			color: white;
+			font-size: 70px;
+}
+
+#inputsearchbar {
+				margin-left: 40px;
+				width: 80%;
+				padding: 17px;
+				font-size: 20px;
+				font-family: Verdana;
+				text-align: left;
+}
+
+#buttonsearchbar {
+				margin-left: 0px;
+				margin-right: 10px;
+				padding: 15px;
+				font-size: 25px;
+}
+
+#logo {
+	height:50px;
+	background-color:white;
+	border-radius:5px;
+}
+
+form#register-form {
+		margin-left:auto;
+		margin-right:auto;
+		
+}
+
+label {
+	font-size: 30px;
+}
+
+/.form-control input-lg {
+	width: 550px;
+}/
+
+#protitle {
+			position: center;
+			font-size: 50px;
+			font-family: Verdana;
+}
+
+.toptitle {
+			position: absolute;
+			bottom:50px;
+			font-size: 70px;
+			font-family: Verdana;
+			width:100%;
+			text-align:center;
+}
+
+.sectitle {
+			font-size: 40px;
+			font-family: Verdana;
+			padding-bottom:50px;
+			padding-top:100px;
+}
+
+.navbar {
+	box-shadow:0 0 10px 0 #616161;
+}
+
+.navbar-toggler{
+	height:56px;
+}
+#navbarDefault a {
+	position:relative;
+	top:12px;
+	color:#00C853;
+	font-size:18px;
+	font-weight:300;
+	height:50px;
+	padding: 10px;
+}
+
+#navbarDefault a::before {
+	opacity:1;
+	content: attr(data-hover);
+	color: white;
+	position: absolute;
+	transition: transform 0.5s, opacity 0.5s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+}
+
+#navbarDefault a::after {
+	background: #ffffff;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	content: '';
+	width: 100%;
+	height: 2px;
+	opacity: 0;
+
+	transition: opacity 0.3s, transform 0.3s;
+	-moz-transition: opacity 0.3s, -moz-transform 0.3s;
+	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+	transform: translateY(-10px);
+	-moz-transform: translateY(-10px);
+	-webkit-transform: translateY(-10px);
+}
+
+#navbarDefault a:hover::after, #navbarDefault a:focus::after {
+	opacity: 1;
+	transform: translateY(0px);
+	-moz-transform: translateY(0px);
+	-webkit-transform: translateY(0px);
+}
+
+#navbarDefault a:hover::before, #navbarDefault a:focus::before {
+	opacity: 0;
+}
+
+#navbarDefault a:active {
+	color:green;
+	border-bottom:solid 2px #000000;
+}
+#navbarDefault form {
+	position:relative;
+	top:11px;
+	left:6px;
+	text-align:center;
+	font-size:18px;
+}
+
+.btn-outline-success {
+						background-color: white;
+}
+
+.nav-item {
+			color: white;
+}
+
+/*Recommended Clinics CSS*/
+.buttons{
+	padding: 40px;
+    font-size: 0px;
+    border-radius: 10px;
+	margin-bottom:50px;
+	margin-top:30px;
+	width:1150px;
+}
+#recommended .container{
+	width:1200px;
+	border-right:0px solid #616161;
+	border-left:0px solid #616161;
+	padding:80px 80px 80px 100px;
+}
+#image{
+	width:380px;
+}
+#myCarousel{
+background-color:white}
+
+#image{width:80%;
+margin:auto;
+}
+#myInput{
+	width:1000px !important;
+}
+.carousel-item img{
+height:533px;
+width:800px;
+}
+.dropdown-menu{
+width: 100px !important;
+position:static !important;
+float:none !important;
+}
+.header1{
+font-size:17.5px;
+color:brown
+}
+
+#image{
+border:1px solid black
+}
+
+/*Health Tips CSS*/
+#myInputTips{
+	border-radius:5px;
+	width:1050px;
+	padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
+    margin-top: 12px;
+	font-size:20px;
+}
+#articles{
+	width:1100px;
+}
+#order{
+	padding:0;
+	margin:0;
+	font-size:20px;
+}
+#calculation{
+	height:500px;
+}

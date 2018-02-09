@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <section>
+        <title>Edit Articles</title>
+        <h1>Edit Article Picture</h1>
+    </section>
+
+
+<section>
+<form action="" method=post enctype=multipart/form-data>
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+    </form>
+</section>
+
+
+    <section>
+    <h1>Edit Article Information</h1>
+    </section>
+
+<section>
+<div class="form-group">
+    {{ render_field(form.description, class_="form-control") }}
+</div>
+</section>
+
+
+
+{% endblock %}

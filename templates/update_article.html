@@ -1,0 +1,83 @@
+  {% extends 'layoutadmin.html' %}
+    {% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/jquery.slim.min.js"></script>
+	<script src="js/tether.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+</head>
+<body>
+<title>Edit Article Infomation</title>
+
+        {% from "includes/_formhelper.html" import render_field %}
+        <h6><a href="/viewarticle">Return without changes</a></h6>
+        <br><br><br><br><br>
+        <h1>Update Article Information</h1>
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                <ul>
+                {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+                        {% for error in field_errors %}
+                            <li>{{ form[field_name].label }}: {{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <section>
+        <br>
+            <br>
+            <br>
+            <br>
+
+            <form method="POST" enctype="multipart/form-data" action="">
+
+            <div class="container">
+                <h1>Update Article Picture</h1>
+                {{ form.csrf_token }}
+                {{ render_field(form.artphoto, class_="form-control") }}
+
+            <br>
+            <br>
+            <h1>Update Article Information</h1>
+
+
+                <div class="form-group">
+                    <div class="form-row">
+                        {{ render_field(form.title, class_="form-control") }}
+                </div>
+                </div>
+                <div class="form-group">
+                    {{ render_field(form.info, class_="form-control") }}
+                </div>
+                <div class="form-group col-md-1">
+ <br><br><br>
+                <center>
+
+                <button class="btn btn-primary btn-lg" id="submitButton" data-toggle="modal" data-target="#mModal">Update</button>
+
+       </center>
+<div class="modal fade" id="mModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+					<div class="modal-content">
+					<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Status</h5>
+					</div>
+					<div class="modal-body">
+					<p>Success! Your article has been updated!
+					</p>
+					</div>
+					<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+					</div>
+					</div>
+
+
+</body>
+</html>
+{% endblock %}

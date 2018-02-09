@@ -1,0 +1,256 @@
+{% extends 'layoutadmin.html' %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+{% block body %}
+
+ <style>
+  .form-control{
+     font-size:30px; {# font size of the words #}
+     height:60px;  {# height of the form #}
+     border:0;
+     box-shadow:none;
+ }
+ .testing1,.testing2,.testing3,.testing4,.testing5,.testing6,.testing7,.testing8,.testing9,.testing10{
+     border-bottom-style: solid;
+    border-bottom-color: coral;
+     width:500px;
+     margin-right:auto;
+     margin-left:auto;
+     font-size:20px;
+ }
+
+ #topclinic{
+    text-align:center;
+     margin-top:55px;
+     text-shadow: 1px 2px 3px #DDEEFF,
+               0 0 0 black,
+               -1px 1px 0 #DDEEFF,
+               1px 1px 0 white;
+
+  color:#2196F3;
+  letter-spacing: -5px;
+  font-size: 6.4em;
+  font-weight: bold;
+    border-bottom-style: solid;
+    border-bottom-color: #3F51B5;
+     font-family:'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+ }
+
+.w3-light-grey, .w3-hover-light-grey:hover, .w3-light-gray, .w3-hover-light-gray:hover{
+    color:white !important;
+    background-color:white !important;
+}
+
+#nicebutton {
+  background: #08fff7;
+  background-image: -webkit-linear-gradient(top, #08fff7, #24abff);
+  background-image: -moz-linear-gradient(top, #08fff7, #24abff);
+  background-image: -ms-linear-gradient(top, #08fff7, #24abff);
+  background-image: -o-linear-gradient(top, #08fff7, #24abff);
+  background-image: linear-gradient(to bottom, #08fff7, #24abff);
+  -webkit-border-radius: 18px;
+  -moz-border-radius: 18px;
+  border-radius: 18px;
+  font-family: Courier New;
+  color: #080f69;
+  font-size: 30px;
+  padding: 10px 0px 10px 0px;
+  text-decoration: none;
+}
+
+#nicebutton:hover {
+background: #12e09f;
+  background-image: -webkit-linear-gradient(top, #12e09f, #3ff013);
+  background-image: -moz-linear-gradient(top, #12e09f, #3ff013);
+  background-image: -ms-linear-gradient(top, #12e09f, #3ff013);
+  background-image: -o-linear-gradient(top, #12e09f, #3ff013);
+  background-image: linear-gradient(to bottom, #12e09f, #3ff013);
+  text-decoration: none;
+}
+
+ .w3-black{
+     background-color:white!important;
+ }
+
+  .help-inline{
+     font-size:16px;
+     color:red;
+ }
+
+ label{
+     color:#3F51B5;
+     text-decoration:underline;
+     text-decoration-color: #3F51B5;
+     font-size:30px;
+ }
+.form-control{
+    color:dodgerblue;
+    background-color:#9e9e9e3b;
+    height:80px;
+}
+
+ .form-group{
+     margin-bottom:28px;
+ }
+
+ .alert-danger {
+     color: red;
+     background-color: #f2dede;
+     font-size: 22px;
+ }
+
+ a.w3-button.w3-light-grey{
+    color:transparent !important;
+    background-color:transparent !important;
+}
+
+ a.w3-hover-text-green,a.w3-hover-text-green:hover{
+     color:transparent !important;
+    background-color:transparent !important;
+ }
+ .w3-section{
+     color:transparent !important;
+     background-color:transparent !important;
+ }
+
+ #poweredby{
+     color:transparent !important;
+     background-color: transparent !important;
+ }
+
+ html,body,.w3-black{
+     background-color:ghostwhite !important;
+ }
+
+ .w3-white{
+     padding:8px;
+ }
+
+ </style>
+
+    {% from "includes/_formhelper.html" import render_field %}
+    <h1 id="topclinic"> Update Disease </h1>
+
+
+
+    {% if diseaseform.errors %}
+    <div class="alert alert-danger">
+        <ul>
+            {% for field_name, field_errors in diseaseform.errors|dictsort if field_errors %}
+                {% for error in field_errors %}
+                    <li>{{ diseaseform[field_name].label }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+
+
+    <form method="POST" enctype="multipart/form-data" action="">
+
+
+         <div class="form-group">
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <div class="testing1">
+                        {{ render_field(diseaseform.title, class_="form-control no-border",placeholder="Enter Disease Name*") }}
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <div class="testing2">
+                        {{ render_field(diseaseform.detail, class_="form-control",placeholder='Enter Causes*') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+  <div class="form-group">
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <div class="testing3">
+                        {{ render_field(diseaseform.cause, class_="form-control no-border",placeholder="Enter Symptoms*") }}
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <div class="testing4">
+                        {{ render_field(diseaseform.symptom, class_="form-control",placeholder='Enter Treatments*') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+          <div class="form-group">
+            <div class="form-row">
+
+                <div class="form-group col-md-6">
+                    <div class="testing5">
+                        {{ render_field(diseaseform.treatment, class_="form-control no-border",placeholder="Enter Complications*") }}
+                    </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <div class="testing6">
+                        {{ render_field(diseaseform.complication, class_="form-control",placeholder='Enter more info*') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{#        <div id="book">#}
+{#            <div class="form-group">#}
+{#                <div class="form-row">#}
+{#                    <div class="form-group col-md-6">#}
+{#                        {{ render_field(form.isbn, class_="form-control") }}#}
+{##}
+{#                    </div>#}
+{#                    <div class="form-group col-md-6">#}
+{#                        {{ render_field(form.author, class_="form-control") }}#}
+{##}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <div class="form-group">#}
+{##}
+{#                {{ render_field(form.synopsis, class_="form-control") }}#}
+{##}
+{##}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div id="magazine">#}
+{#            <div class="form-group">#}
+{##}
+{#                {{ render_field(form.frequency, class_="radio-inline") }}#}
+{##}
+{#            </div>#}
+{#        </div>#}
+
+
+        <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-11">
+
+
+                </div>
+                <div class="form-group col-md-1">
+                    <input type="submit" value="UPDATE" class="btn btn-info" id="nicebutton"/>
+                </div>
+            </div>
+        </div>
+
+    </form>
+
+
+
+
+
+
+{% endblock %}

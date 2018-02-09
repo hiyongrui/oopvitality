@@ -1,0 +1,314 @@
+<title> Vitality Viewing Clinics </title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"> </script>
+
+<style>
+
+.movedown{
+    margin-top:66px;
+    text-align:center;
+text-decoration-color:blue;
+    text-decoration:underline;
+}
+
+body{
+    background-color:ghostwhite !important;
+}
+
+
+#hello {
+    display:none;
+    padding: 10px;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #fff;
+    box-shadow: 0 1px 1px #ccc;
+    margin-bottom: 5px;
+    background-color: #f1f1f1;
+}
+.totop {
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+}
+.totop a {
+    display: none;
+}
+a, a:visited {
+    color: #33739E;
+    text-decoration: none;
+    display: block;
+    margin: 10px 0;
+}
+a:hover {
+    text-decoration: none;
+}
+#loadMore {
+    padding: 10px;
+    text-align: center;
+    background-color: #33739E;
+    color: #fff;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #fff;
+    box-shadow: 0 1px 1px #ccc;
+    transition: all 600ms ease-in-out;
+    -webkit-transition: all 600ms ease-in-out;
+    -moz-transition: all 600ms ease-in-out;
+    -o-transition: all 600ms ease-in-out;
+    font-size:18px;
+}
+#loadMore:hover {
+    background-color: #fff;
+    color: dodgerblue;
+    font-size:26px;
+}
+
+/* Common */
+
+body {
+  color: #777;
+  text-align: center;
+}
+
+/* Layout */
+
+.layout {
+  display: none;
+  margin: 20px auto;
+  width: 600px;
+
+  /* try to remove this in FF */
+
+}
+
+.layout-cell {
+  border: 1px solid #ccc;
+  display: table-cell;
+
+  vertical-align: top;
+
+}
+
+.sidebar {
+  width:40%;
+}
+
+.content {
+  width:40%;
+}
+
+img {
+  max-width: 100%;
+}
+
+    .alert-success{
+        margin-top:66px !important;
+        color:#3400d4 !important;
+        background-color:#00fa7b !important;
+        font-size:22px;
+
+    }
+
+    #topclinic{
+    text-align:center;
+     margin-top:70px;
+     text-shadow: 1px 2px 3px #DDEEFF,
+               0 0 0 black,
+               -1px 1px 0 #DDEEFF,
+               1px 1px 0 white;
+
+  color:#2196F3 !important;
+  letter-spacing: -4px;
+  font-size: 4.4em;
+  font-weight: bold;
+    border-bottom-style: solid;
+    border-bottom-color: #3F51B5;
+        font-family:'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+ }
+
+    .w3-white, .w3-hover-white:hover{
+        margin-bottom:40px;
+    }
+
+#addclinic{
+    font-size:30px;
+}
+
+    h1,h2,h3,h4,h5{
+        color:mediumblue !important;
+    }
+
+    .ratingcolor{
+        color:deeppink;
+    }
+
+    hr{
+        border-top:1px solid #2196F3 !important;
+    }
+
+     a.btn.btn-info.btn-lg{
+         background-color:dodgerblue;
+
+     }
+    a.btn.btn-info.btn-lg:hover{
+        background-color:ghostwhite;
+        color:dodgerblue;
+
+    }
+
+    a.w3-bar-item.w3-button{
+        padding:10px;
+    }
+
+#deletethis{
+   color:white;
+    background-color:red;
+}
+
+#deletethis:hover{
+    background-color:white;
+    color:red
+}
+
+    #updatethis{
+        background-color:dodgerblue;
+        font-size:28px;
+        margin-bottom:6px;
+    }
+    #updatethis:hover{
+        color:dodgerblue;
+        background-color:white;
+    }
+
+    .goog-te-gadget-simple{
+        margin-right:950px;
+        font-size:12px;
+    }
+</style>
+
+{% extends 'layoutadmin.html' %}
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+{% block body %}
+    <h1 id="topclinic"> View clinics that you have created below!</h1>
+    <br>
+
+
+    <canvas id="pie-chart" width="800" height="250"></canvas>
+    <br>
+
+<a href="createclinic" class="btn btn-info btn-lg">
+    <span id="addclinic" class="glyphicon glyphicon-plus-sign"> I wan to add more clinics!</span>
+</a>
+
+
+{% for clinic in clinics %}
+
+<div class="layout">
+
+  <div class="layout-cell content">
+                 <img class="card-img-top" src="{{url_for('send_image',filename=clinic.get_photo()) }}" height="420" width="420">
+  </div>
+
+  <div class="layout-cell sidebar">
+
+    <h2>  <span class="glyphicon glyphicon-info-sign"></span> {{ clinic.get_title() }} </h2>
+        <p class="ratingcolor"> Rating: {%  for count in range(clinic.get_rating()) %}
+                        &#9733;
+                    {% endfor %}
+                    {%  for count in range(5 - clinic.get_rating()) %}
+                        &#9734;
+                    {% endfor %} </p>
+    <hr>
+      <h3> <span class="glyphicon glyphicon-phone-alt"></span> +{{ clinic.get_phone() }} </h3>
+      <hr>
+      <h2><span class="glyphicon glyphicon-registration-mark"></span> Region: {{ clinic.get_region() }} </h2>
+      <hr>
+      <h4> <span class="glyphicon glyphicon-time"></span> Date of creation: {{ clinic.get_created_date() }}</h4>
+
+       <a id="updatethis" href="/update_clinic/{{ clinic.get_clinicid() }}" class="btn btn-primary a-btn-slide-text">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span><strong>EDIT</strong></span>
+    </a>
+
+      <form action="{{url_for('delete_clinic', id=clinic.get_clinicid()) }}" method="post">
+          <button id="deletethis" class="btn btn-danger" onclick="return confirm('Double confirming, delete this clinic?');">
+              <span id="addclinic" class="glyphicon glyphicon-trash">REMOVE  </span> </button>
+
+      </form>
+
+
+  </div>
+
+</div>
+
+{% endfor %}
+
+
+<a href="#" id="loadMore">Load More</a>
+
+<p class="totop">
+    <a href="#top">Back to top</a>
+</p>
+
+
+
+<script>
+
+    new Chart(document.getElementById("pie-chart"), {
+    type: 'pie',
+    data: {
+      labels: ["North", "Central", "East", "West" ],
+      datasets: [{
+        label: "Population (millions)",
+        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#c45850"],
+        data: [{{ countNorth }},{{ countCentral }},{{ countEast }},{{ countWest }}]
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Hover over the chart to see data of clinics created in each region!'
+      }
+    }
+});
+
+    </script>
+
+<script>
+
+
+$(function () {
+    $(".layout").slice(0, 3).show();
+    $("#loadMore").on('click', function (e) {
+        e.preventDefault();
+        $(".layout:hidden").slice(0, 3).slideDown();
+        if ($(".layout:hidden").length == 0) {
+            $("#load").fadeOut('slow');
+        }
+        $('html,body').animate({
+            scrollTop: $(this).offset().top
+        }, 1500);
+    });
+});
+
+$('a[href=#top]').click(function () {
+    $('body,html').animate({
+        scrollTop: 0
+    }, 600);
+    return false;
+});
+
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 50) {
+        $('.totop a').fadeIn();
+    } else {
+        $('.totop a').fadeOut();
+    }
+});
+
+</script>
+
+{% endblock %}

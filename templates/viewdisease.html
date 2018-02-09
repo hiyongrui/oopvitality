@@ -1,0 +1,170 @@
+<title> Vitality  </title>
+
+<style>
+    .movedown{
+    margin-top:66px;
+}
+#addclinic{
+    font-size:30px;
+}
+
+body{
+    background-color:ghostwhite !important;
+}
+    #topclinic{
+    text-align:center;
+     margin-top:55px;
+     text-shadow: 1px 2px 3px #DDEEFF,
+               0 0 0 black,
+               -1px 1px 0 #DDEEFF,
+               1px 1px 0 white;
+
+  color:#2196F3;
+  letter-spacing: -4px;
+  font-size: 4.4em;
+  font-weight: bold;
+    border-bottom-style: solid;
+    border-bottom-color: #3F51B5;
+        font-family:'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+ }
+
+    .wrapper {
+    text-align: center;
+}
+
+.btn btn-info btn-lg {
+    position: absolute;
+}
+     .alert-success{
+        margin-top:66px !important;
+        color:#3400d4 !important;
+        background-color:#00fa7b !important;
+        font-size:22px;
+         text-align:center;
+
+    }
+
+
+       a.btn.btn-info.btn-lg{
+         background-color:dodgerblue;
+     }
+    a.btn.btn-info.btn-lg:hover{
+        background-color:springgreen;
+
+    }
+
+    a.w3-bar-item.w3-button{
+        padding:16px;
+    }
+
+   .btn-danger{
+        background-color:red;
+    }
+
+      a.btn.btn-info.btn-lg{
+         background-color:dodgerblue;
+
+     }
+    a.btn.btn-info.btn-lg:hover{
+        background-color:ghostwhite;
+        color:dodgerblue;
+
+    }
+
+      #updatethis{
+        background-color:dodgerblue;
+        font-size:24px;
+        margin-bottom:6px;
+    }
+    #updatethis:hover{
+        color:dodgerblue;
+        background-color:white;
+    }
+
+    #deletethis{
+   color:white;
+    background-color:red;
+}
+
+#deletethis:hover{
+    background-color:white;
+    color:red
+}
+.goog-te-gadget-simple{
+
+    padding:16px !important;
+    }
+</style>
+
+{% extends 'layoutadmin.html' %}
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+
+{% block body %}
+    <h1 id="topclinic"> View all diseases that you have created below!</h1>
+    <br>
+
+<div class="wrapper">
+<a href="createdisease" class="btn btn-info btn-lg">
+    <span id="addclinic" class="glyphicon glyphicon-plus-sign"> I wan to add more diseases!</span>
+
+</a>
+</div>
+    <br>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Disease Name</th>
+            <th> Treatment INFO?</th>
+
+
+            <th>SYMPTOM OF DISEASE</th>
+            <th>Date Of Disease Added</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+
+
+{% for disease in diseases %}
+
+    <div class="layout">
+            <tr>
+
+
+                <td>{{ disease.get_title() }}</td>
+
+                    <td> {{ disease.get_treatment() }}</td>
+
+
+                    <td> {{ disease.get_symptom() }}</td>
+
+
+
+
+
+                <td>{{ disease.get_created_date () }}</td>
+                <td>
+                    <a id="updatethis" href="/update_disease/{{disease.get_diseaseid()}}" class="btn btn-primary a-btn-slide-text">
+                         <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        <span><strong>EDIT</strong></span> </a></td>
+
+                <td><form action="{{url_for('delete_disease', id=disease.get_diseaseid())}}" method="post">
+              <button id="deletethis" class="btn btn-danger" onclick="return confirm('Double confirming, delete this disease?');">
+                  <span id="addclinic" class="glyphicon glyphicon-trash">REMOVE </span> </button>
+
+                </form></td>
+
+            </tr>
+        {% endfor %}
+</div>
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}

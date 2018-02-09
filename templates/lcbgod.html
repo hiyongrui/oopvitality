@@ -1,0 +1,251 @@
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+{% extends "layoutadmin.html" %}
+    {%  block body %}
+        <!-- /.col-lg-3 -->
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+body, html {
+    height: 100%;
+    line-height: 1.8;
+}
+/* Full height image header */
+.bgimg-1 {
+    background-position: center;
+    background-size: cover;
+    background-image: url("http://mcfiber.pro/wowopapae.jpg");
+    min-height: 100%;
+}
+.w3-bar .w3-button {
+    padding: 16px;
+}
+
+
+.bgimg {
+    background-image: url('http://www.hamiltonhealthsciences.ca/images/MGD/Photos/MGD_clinic_entrance.jpg');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 25px;
+}
+
+
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+hr {
+    margin: auto;
+    width: 40%;
+}
+
+    .design1{
+        font-size: 40px;
+    font-style: italic;
+    line-height: 40px;
+    margin-bottom: 25px;
+    font-family: 'Droid Serif','Helvetica Neue',Helvetica,Arial,sans-serif;
+    }
+
+    .design2{
+        font-size: 75px;
+    font-weight: 700;
+    line-height: 75px;
+    margin-bottom: 50px;
+    font-family: Montserrat,'Helvetica Neue',Helvetica,Arial,sans-serif;
+    }
+
+
+button,
+button::after {
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+button {
+  background-color:grey;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  display: block;
+  font-size:18px;
+  font-weight: bold;
+  margin: 1em auto;
+  padding: 2em 4em;
+  position: relative;
+  text-transform: uppercase;
+    font-family:Montserrat;
+}
+
+button::before,
+button::after {
+  background: #fff;
+  content: '';
+  position: absolute;
+  z-index: -1;
+}
+
+button:hover {
+  color: #2ecc71;
+}
+
+    /* BUTTON 3 */
+.btn-3::after {
+  height: 0;
+  left: 50%;
+  top: 50%;
+  width: 0;
+}
+
+.btn-3:hover:after {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.circle {
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  border-radius: 50%; /* the magic */
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 auto 40px;
+}
+
+.blue {
+  background-color: #3498db;
+  font-size:99px;
+}
+
+.green {
+  background-color: mediumspringgreen;
+  font-size:99px;
+}
+
+.purple{
+    background-color:mediumpurple;
+    font-size:99px;
+}
+
+.brown{
+    background-color:sandybrown;
+    font-size:99px;
+}
+.button {
+  font: bold 16px "Share", cursive;
+  border-style: solid;
+  border-width: 3px;
+  border-color: #000000;
+  display: inline-block;
+  position: relative;
+  margin: 5px;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  background: #fff;
+  color: #000;
+}
+.button:hover {
+  -webkit-transition: all 0.30s ease;
+  color: #fff;
+  background: #000;
+  text-decoration: none;
+}
+
+body{
+    padding-top:20px;
+}
+
+
+
+</style>
+
+
+
+<div class="bgimg">
+
+  <div class="middle">
+    <h1 class="design1"> SEARCH FOR CLINIC </h1>
+    <hr>
+    <p class="design2"> FAST AND EASY </p>
+      <button id="button1" onclick="scrollToElement()" class="btn-3">  SEARCH NOW  </button>
+  </div>
+
+
+
+</div>
+
+
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h3 class="w3-center"> ABOUT OUR CLINICS </h3>
+  <p class="w3-center w3-large"> Below is the total number of clinics in each region</p>
+
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+
+    <div class="w3-quarter">
+
+        <div class="circle blue"> {{ countWest }}</div>
+      <p class="w3-large"> in the WEST</p>
+         <a href="searchclinicwest" class="button">  VIEW </a>
+    </div>
+
+    <div class="w3-quarter">
+      <div class="circle green"> {{ countEast }}</div>
+      <p class="w3-large">  in the EAST </p>
+        <a href="searchcliniceast" class="button">  VIEW </a>
+
+    </div>
+
+    <div class="w3-quarter">
+      <div class="circle purple"> {{ countNorth }}</div>
+      <p class="w3-large"> in the NORTH</p>
+      <a href="searchclinicnorth" class="button"> VIEW </a>
+    </div>
+
+    <div class="w3-quarter">
+       <div class="circle brown"> {{ countCentral }}</div>
+      <p class="w3-large"> in the CENTRAL</p>
+     <a href="searchcliniccentral" class="button"> VIEW </a>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+        <script>
+
+function scrollToElement(element) {
+	document.getElementById('about').scrollIntoView({block: 'start', behavior: 'smooth'});
+
+}
+
+</script>
+
+
+    {%  endblock %}
+
+

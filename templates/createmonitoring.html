@@ -1,0 +1,115 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% from "includes/_formhelper.html" import render_field %}
+!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+<!--===============================================================================================-->
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/apo.css') }}">
+
+<!--===============================================================================================-->
+    <script>
+        $(document).ready(function () {
+            $('#book').show();
+            $('#magazine').hide();
+            $('input[type="radio"]').click(function () {
+                if ($(this).attr('value') == 'sbook') {
+                    $('#book').show();
+                    $('#magazine').hide();}})
+
+
+
+    </script>
+<br><br><br><br><br>
+<hr>
+<center> <h1>New Appointment</h1><br><br>
+{% if form.errors %}
+    <div class="alert alert-danger">
+        <ul>
+            {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+                {% for error in field_errors %}
+                    <li>{{ form[field_name].label }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+    <form method="POST" action="">
+
+
+
+<div class="container-contact100">
+		<div class="wrap-contact100">
+			<form class="contact100-form validate-form">
+				<span class="contact100-form-title">
+
+
+					 {{ render_field(form.title, class_="form-control") }}
+
+
+                    {{ render_field(form.category, class_="form-control") }}
+
+                    {{ render_field(form.publisher, class_="form-control") }}
+
+                    {{ render_field(form.status, class_="form-control") }}
+
+
+                        {{ render_field(form.isbn, class_="form-control") }}
+
+
+                        {{ render_field(form.author, class_="form-control") }}
+
+
+                {{ render_field(form.synopsis, class_="form-control") }}
+
+
+
+                {{ render_field(form.frequency, class_="form-control") }}
+                    {{ render_field(form.patientstatus, class="form-control") }}
+
+
+
+
+
+
+
+<center>
+ <button class="btn btn-primary btn-lg" id="submitButton" data-toggle="modal" data-target="#mModal">Submit Appointment</button>
+            </div>
+        </div>
+            </div>
+        </div></center>
+<div class="modal fade" id="mModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog" role="document">
+					<div class="modal-content">
+					<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Status </h5>
+					</div>
+					<div class="modal-body">
+					<p>Success! Your appointment has been addded!
+					<br>Your medical center of choice will reply you shortly.</p>
+					</div>
+					<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+					</div>
+					</div>
+    </form><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

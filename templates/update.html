@@ -1,0 +1,144 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% from "includes/_formhelper.html" import render_field %}
+    <h1>New Publication</h1>
+    <script>
+        $(document).ready(function () {
+            var publicationType = $('input[name=pubtype]:checked').val();
+
+            if (publicationType == 'scli') {
+                $('#clinic').show();
+                $('#disease').hide();
+            } else if (publicationType == 'sdis') {
+                 $('#disease').show();
+                $('#clinic').hide();
+
+            }
+
+        });
+        $(document).ready(function () {
+            $('#clinic').show();
+            $('#disease').hide();
+            $('input[type="radio"]').click(function () {
+                if ($(this).attr('value') == 'scli') {
+                    $('#clinic').show();
+                    $('#disease').hide();
+
+                }
+               else{
+                    $('#disease').show();
+                    $('#clinic').hide();
+                }
+
+            });
+        });
+
+    </script>
+    {% if form.errors %}
+    <div class="alert alert-danger">
+        <ul>
+            {% for field_name, field_errors in form.errors|dictsort if field_errors %}
+                {% for error in field_errors %}
+                    <li>{{ form[field_name].label }}: {{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+    <form method="POST" action="">
+        <div class="form-group">
+            <div class="form-row">
+                {{ render_field(form.pubtype, class_="radio-inline") }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ render_field(form.title, class_="form-control") }}
+        </div>
+        <div id="clinic">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        {{ render_field(form.address, class_="form-control") }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ render_field(form.phone, class_="form-control") }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ render_field(form.openingHour, class_="form-control") }}
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        {{ render_field(form.busNo, class_="form-control") }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ render_field(form.mrtStation, class_="form-control") }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ render_field(form.hospital, class_="form-control") }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    {{ render_field(form.areaName,class_="form-control") }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ render_field(form.region, class_="form-control") }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="disease">
+             <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        {{ render_field(form.cause, class_="form-control") }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ render_field(form.symptom, class_="form-control") }}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ render_field(form.treatment, class_="form-control") }}
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ render_field(form.complication, class_="form-control") }}
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ render_field(form.specialist, class_="form-control") }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-11">
+                </div>
+                <div class="form-group col-md-1">
+                    <input type="submit" value="Update" class="btn btn-info"/>
+                </div>
+            </div>
+        </div>
+
+    </form>
+{% endblock %}
