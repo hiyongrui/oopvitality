@@ -1,1 +1,1 @@
-web: gunicorn oopvitality:app
+web: gunicorn Library:app
