@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/librarysystem.iml" filepath="$PROJECT_DIR$/.idea/librarysystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/oopvitality.iml" filepath="$PROJECT_DIR$/.idea/oopvitality.iml" />
     </modules>
   </component>
 </project>
