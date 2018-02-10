@@ -117,6 +117,7 @@ a{
 
 a.w3-bar-item.w3-button{
     padding:16px;
+    font-weight:bold;
 }
 
         #poweredby{
@@ -183,11 +184,18 @@ a.w3-bar-item.w3-button{
     color:dodgerblue;
 }
 
-        #ratingstars{
-            color:deepskyblue;
+        .ratingstars{
+            color:darkorange;
+            display:inline;
 
         }
-
+        #ratingcolor{
+            color:blue;
+            margin-left:180px;
+        }
+        #phonemargin{
+            margin-top:8px;
+        }
         .infocolor{
             color:mediumblue;
         }
@@ -232,7 +240,10 @@ a.w3-bar-item.w3-button{
 
     <h1 id="clinicnamecolor"> <a href="{{ url_for('get_clinic',title=clinic.get_title() ) }}">
         <i class="material-icons"> add_to_queue </i>  {{ clinic.get_title() }} </a></h1>
-     <p id="ratingstars" class="infocolor"> <span class="glyphicon">&#xe125;</span>  Rating : {%  for count in range(clinic.get_rating()) %}
+     <p id="ratingcolor" class="ratingstars"> <span class="glyphicon">&#xe125;</span>  Rating : </p>
+
+    <p id="ratingstars1" class="ratingstars"> {%  for count in range(clinic.get_rating()) %}
+
                         &#9733;
                     {% endfor %}
                     {%  for count in range(5 - clinic.get_rating()) %}
@@ -240,7 +251,7 @@ a.w3-bar-item.w3-button{
                     {% endfor %} </p>
 
 
-    <p class="infocolor"> <i class="material-icons"> phone_in_talk </i> Phone No : +{{ clinic.get_phone() }} </p>
+    <p id="phonemargin" class="infocolor"> <i class="material-icons"> phone_in_talk </i> Phone No : +{{ clinic.get_phone() }} </p>
 
      <a href="{{ url_for('get_clinic',title=clinic.get_title() )}}" class="button">  LEARN MORE </a>
 
