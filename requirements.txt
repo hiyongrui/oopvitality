@@ -89,7 +89,7 @@ visitor==0.1.3
 waitress==1.1.0
 WebOb==1.7.4
 WebTest==2.0.29
-Werkzeug==0.12.2
+Werkzeug==0.15.3
 wrapt==1.10.11
 WTForm==1.0
 WTForms==2.1
